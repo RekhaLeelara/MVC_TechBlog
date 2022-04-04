@@ -2,7 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const SignUp = require('./models/User');
+const User = require('./models/User');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -12,14 +12,14 @@ const hbs = exphbs.create({});
 
 // Sets up the Express App
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // Set Handlebars as the default template engine.
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./controllers/dish-routes'));
+app.use(require('./controllers/user-routes'));
 
 
 // set morgan to log info about our requests for development use.
@@ -74,27 +74,29 @@ app.get('/', sessionChecker, (req, res) => {
 });
 
 
-// route for user signup
-app.route('/signup')
-    //.get(sessionChecker, (req, res) => {
-    .get((req, res) => {
-        //res.sendFile(__dirname + '/public/signup.html');
-        res.render('signup', hbsContent);
-    })
-    .post((req, res) => {
-        SignUp.create({
-            username: req.body.username,
-            //email: req.body.email,
-            password: req.body.password
-        })
-        .then(user => {
-            req.session.user = user.dataValues;
-            res.redirect('/dashboard');
-        })
-        .catch(error => {
-            res.redirect('/signup');
-        });
-    });
+// // route for user signup
+// app.route('/user')
+//     //.get(sessionChecker, (req, res) => {
+//     .get((req, res) => {
+//         //res.sendFile(__dirname + '/public/signup.html');
+//         res.render('user', hbsContent);
+//     })
+//     .post((req, res) => {
+//       console.log("inside post request");
+//       User.create({
+//             username: req.body.username,
+//             //email: req.body.email,
+//             password: req.body.password
+//         })
+//         .then(user => {
+//             req.session.user = user.dataValues;
+//             // res.redirect('/dashboard');
+//         })
+//         .catch(error => {
+//           console.log("Data not stored in the database");
+//             // res.redirect('/user');
+//         });
+//     });
 
 // Starts the server to begin listening
 app.listen(PORT, () => {

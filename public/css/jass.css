@@ -70,26 +70,6 @@ h1 {
   color: green;
 }
 
-/* .container {
-  display: table;
-  width: 100%
-}
-
-label {
-  display: table-cell;
-  width: 1px;
-  white-space: nowrap;
-}
-
-span {
-  display: table-cell;
-  padding: 0 4px 0 6px;
-}
-
-input {
-  width: 70%;
-} */
-
 .btn {
   background-color: #04AA6D;
   border: none;
@@ -113,7 +93,7 @@ input {
 }
 
 #signUp{
-  
+
 }
 
 

@@ -26,17 +26,17 @@ User.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'signup',
+    modelName: 'user',
   }
 );
 
-SignUp.beforeCreate((signup, options) => {
+User.beforeCreate((User, options) => {
 	const salt = bcrypt.genSaltSync();
-	signup.password = bcrypt.hashSync(signup.password, salt);
+	User.password = bcrypt.hashSync(User.password, salt);
 });
   
  
-SignUp.prototype.validPassword = function(password) {
+User.prototype.validPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
       }; 
 
@@ -45,4 +45,4 @@ sequelize.sync()
     .then(() => console.log('users table has been successfully created, if one doesn\'t exist'))
     .catch(error => console.log('This error occured', error));
 
-module.exports = SignUp;
+module.exports = User;
