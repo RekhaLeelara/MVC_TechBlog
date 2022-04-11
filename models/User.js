@@ -25,9 +25,10 @@ User.init(
           type: DataTypes.STRING,
           allowNull: false
         },
-        usertype: {
-          type: DataTypes.STRING,
-          allowNull: true
+        updated_at: {
+          allowNull: false,
+          type: DataTypes.DATE, 
+          defaultValue: new Date()
         },
         // define a password column
         password: {

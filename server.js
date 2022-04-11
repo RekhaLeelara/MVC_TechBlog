@@ -31,6 +31,7 @@ const sess = {
 
 app.use(session(sess));
 
+
 // Set Handlebars as the default template engine.
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -38,12 +39,21 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./controllers/patient-routes.js'));
-app.use(require('./controllers/doctor-routes.js'));
 app.use(require('./controllers/login-routes.js'));
-app.use(require('./controllers/home-routes.js'));
-app.use(require('./controllers/book-appointment.js'));
+app.use(require('./controllers/home.js'));
+app.use(require('./controllers/landingpage.js'));
+app.use(require('./controllers/dashboard.js'));
 app.use(express.static('views/assets/img'));
+
+
+app.use(function(req, res, next) {
+  if (req.session.user == null){
+// if user is not logged-in redirect back to login page //
+      res.redirect('/login');
+  }   else{
+      next();
+  }
+});
 
 app.use(routes);
 // Starts the server to begin listening

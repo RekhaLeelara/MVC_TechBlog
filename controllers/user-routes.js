@@ -23,7 +23,7 @@ router.post('/user', (req, res) => {
       res.json(dbUserData);
     });
     // send user to login page now
-    res.render('login')
+    res.render('home')
   });
 
 
