@@ -4,7 +4,7 @@ updatebutton.forEach(item => {
     item.addEventListener('click', openposthandler)
 });
 
-
+//To open a post from the home page to edit/delete the post
 function openposthandler(event) {
     event.preventDefault();
     let postId = event.target.id
@@ -19,11 +19,11 @@ function openposthandler(event) {
 var deletePost = document.querySelector('.btn-DeletePostblock')
 deletePost.addEventListener('click', deleteposthandler);
 
+//Deleting the post
 function deleteposthandler(event) {
     console.log('Delete button clicked');
     event.preventDefault();
     console.log("id: ", event.target.id);
-    // let id = document.querySelector('.postTitle').id
     let id = event.target.id
     console.log("id: ", id);
     fetch(`/deletePostpage/${id}`, {
@@ -40,22 +40,17 @@ var createbutton = document.querySelector('.dashboard')
 createbutton.addEventListener('click', dashboardhandler);
 
 
-
+//Taking user to the dashboard page after clicking on the Dashboard link
 function dashboardhandler(event) {
     event.preventDefault();
     console.log("dashboard button clicked")
 
     fetch('/dashboard', {
         method: 'get',
-        // body: JSON.stringify({
-        //   title,
-        //   content
-        // }),
         headers: { 'Content-Type': 'application/json' }
     })
 
     location.replace(`/dashboard`);
 
-    // window.location.reload('/dashboard')
 }
-    // json method ///
+

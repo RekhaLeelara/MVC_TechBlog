@@ -4,7 +4,7 @@ var createbutton = document.getElementById('newpost')
 createbutton.addEventListener('click', newposthandler);
 
 
-
+//Create a new post after clicking on Add New button
 function newposthandler(event) {
     event.preventDefault();
     const title = document.getElementById('newtitle-input').value.trim();
@@ -23,9 +23,7 @@ function newposthandler(event) {
 
       location.replace(`/dashboard`);
         
-        // window.location.reload('/dashboard')
     }
-    // json method ///
     
 }
 

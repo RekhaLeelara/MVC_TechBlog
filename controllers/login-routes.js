@@ -2,27 +2,22 @@ const router = require('express').Router();
 const User = require('../models/User');
 const Post = require('../models/Post');
 
-
+//Render all posts in the home page
 router.get('/', (req, res) => {
-    // if (req.session.loggedIn){
         Post.findAll({
 
           }).then(dbUserData => {
-            // console.log("dashboardgetdbuserdata", dbUserData)
             const posts = dbUserData.map(post=>post.get({plain:true}));
             res.render('home', {posts, loggedIn: req.session.loggedIn});
           });
-    // }
-    // else{
-    //     res.redirect('/login')
-    // }
-
 });
 
+//Render login page
 router.get('/login', (req, res) => {
   res.render('login')
 });
 
+//Allowing the user to login if the credential is valid
 router.post('/login', (req, res) => {
     User.findOne({
       where: {

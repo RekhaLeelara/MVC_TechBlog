@@ -1,8 +1,7 @@
-// const { response } = require('express');
-
 var loginform = document.getElementById('loginform')
 loginform.addEventListener('submit', loginformhandler);
 
+//Authenticating the user with the valid credentials
 function loginformhandler(event) {
     event.preventDefault();
     const username = document.getElementById('username-input').value.trim();
@@ -25,7 +24,6 @@ function loginformhandler(event) {
         });
 
     }
-    // json method ///
     
 }
   

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
-
+//Create a new post
 router.post('/createpost', (req, res) => {
   Post.create({
     title: req.body.title,
@@ -18,6 +18,7 @@ router.post('/createpost', (req, res) => {
   });
 });
 
+//Edit existing post
 router.get('/editpost/:id', (req, res) => {
   Post.findByPk(req.params.id)
     .then(dbUserData => {
@@ -36,6 +37,7 @@ router.get('/editpost/:id', (req, res) => {
 //   res.render('editpost', req.body.dbUserData)
 // })
 
+//Allowing user to update posts
 router.post('/updatepost/:id', (req, res) => {
   Post.update(req.body,{
     where: {
@@ -49,6 +51,7 @@ router.post('/updatepost/:id', (req, res) => {
   });
 });
 
+//Delete posts based on the id
 router.delete('/deletePostpage/:id', (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({

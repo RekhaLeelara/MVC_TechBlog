@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+//get the post based on the id
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -33,6 +34,7 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
+//Post a new comment
 router.post('/', (req, res) => {
   if (req.session){
     Comment.create({
@@ -48,6 +50,7 @@ router.post('/', (req, res) => {
       }
 });
 
+//Get list of comments for a specific post id
 router.get('/comment/:postId', (req, res) => {
   console.log('-------------------------------', req.params.postId);
   Post.findByPk(req.params.postId, {
@@ -71,6 +74,7 @@ router.get('/comment/:postId', (req, res) => {
   })
 })
 
+//Create a new comment for a post 
 router.post('/comment/:postid', (req, res) => {
   if (req.session){
     Comment.create({
@@ -93,7 +97,7 @@ router.post('/comment/:postid', (req, res) => {
     }
 });
 
-
+//delete a comment
 router.delete('/deleteComment/:id', withAuth, (req, res) => {
   console.log("Entering into the delete controller");
   Comment.destroy({

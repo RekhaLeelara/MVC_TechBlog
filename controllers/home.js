@@ -1,22 +1,22 @@
-const router = require('express').Router();
-const Post = require('../models/Post');
+// const router = require('express').Router();
+// const Post = require('../models/Post');
+
+// //Get list of posts
+// router.get('/home', (req, res) => {
+//     // if (req.session.loggedIn){
+//         Post.findAll({
+
+//           }).then(dbUserData => {
+//             const posts = dbUserData.map(post=>post.get({plain:true}));
+//             res.render('home', {posts});
+//           });
+//     // }
+//     // else{
+//     //     res.redirect('/login')
+//     // }
+
+// });
 
 
-router.get('/home', (req, res) => {
-    // if (req.session.loggedIn){
-        Post.findAll({
 
-          }).then(dbUserData => {
-            const posts = dbUserData.map(post=>post.get({plain:true}));
-            res.render('home', {posts});
-          });
-    // }
-    // else{
-    //     res.redirect('/login')
-    // }
-
-});
-
-
-
-module.exports = router;
+// module.exports = router;

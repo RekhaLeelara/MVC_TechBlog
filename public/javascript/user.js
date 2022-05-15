@@ -1,6 +1,6 @@
 document.getElementById('signUp-btn').addEventListener('click', createUser);
 
-
+//Signing in a new user
 function createUser(){
     console.log("Hello!!");
     const usernameElement = document.getElementById('username-input');

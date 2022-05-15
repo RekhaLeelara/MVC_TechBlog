@@ -4,24 +4,20 @@ editbutton.forEach(item => {
     item.addEventListener('click', editposthandler)
 })
 
-var updatebutton = document.getElementById('updatepost')
-updatebutton.addEventListener('click', updateposthandler);
-// var deletebutton = document.getElementById('deletepost')
-// deletebutton.addEventListener('click', deleteposthandler);
-
-
+//Clicking on the post header to edit the post
 function editposthandler(event) {
     console.log('clicked');
     event.preventDefault();
     let id = event.target.id
     console.log(id);
-    // fetch('/editpost/'+ id, {
-    //     method: 'get',
-    //     headers: { 'Content-Type': 'application/json' }
-    //   })
     location.replace(`/editpost/${id}`);
   }
 
+
+var updatebutton = document.getElementById('updatepost')
+updatebutton.addEventListener('click', updateposthandler);
+
+//After clicking on the update post, the updated data gets saved
   function updateposthandler(event) {
     event.preventDefault();
     const title = document.getElementById('edittitle-input').value.trim();

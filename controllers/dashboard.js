@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
-
+//Get the Dashboard data
 router.get('/dashboard', (req, res) => {
     if (req.session.loggedIn){
         Post.findAll({
@@ -21,10 +21,9 @@ router.get('/dashboard', (req, res) => {
 
 });
 
+//Render a new post page
 router.get('/newpost', (req, res) => {
         res.render('newpost')
-
-
 });
 
 

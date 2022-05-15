@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers/login-routes.js'));
-app.use(require('./controllers/home.js'));
+// app.use(require('./controllers/home.js'));
 // app.use(require('./controllers/landingpage.js'));
 app.use(require('./controllers/dashboard.js'));
 app.use(require('./controllers/post.js'));

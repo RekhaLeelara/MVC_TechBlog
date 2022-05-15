@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const User = require('../models/User');
 
-
+//rendering the signup page
 router.get('/user', (req, res) => {
 res.render('signup')
 });
 
-// POST /api/users
+//Signing up new user
 router.post('/user', (req, res) => {
-  console.log("******USER POSTED SUCCESSFULLY*****************", req.body);
   User.create({
     username: req.body.username,
     usertype: req.body.usertype,
@@ -26,6 +25,7 @@ router.post('/user', (req, res) => {
     res.render('dashboard')
   });
 
+  //Logging out of the application
   router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
       console.log("Destroying user session");
@@ -38,6 +38,7 @@ router.post('/user', (req, res) => {
     }
   });
 
+  //Redirecting user to Login page once the user has loggedout
   router.get('/logout', (req, res) => {
     if (!req.session.loggedIn) {
       res.redirect('/login');
