@@ -1,24 +1,30 @@
 
 ## Description
 
-This application helps to display the details of a Portfolio and helps with the job search. The potential employer can also check the projects done by the candidate and download the resume.
+This application helps the users to sign in with their credentials and create, edit or delete blog posts. The user can also add comments to the blog posts.
 
 ## Screenshot
-![testing](./public/assets/images/myportfolio.png)
+![testing](./public/assets/images/mvc.png)
 
 
 ## GitHub Repo
 
-Repo: https://github.com/RekhaLeelara/MyPortforlio
+Repo: https://github.com/RekhaLeelara/MVC_TechBlog
+
+## Deployed Application Link
+
+https://rekhaleelara.github.io/MVC_TechBlog/
 
 
 ## Usage
 
-1. Go to Application link
-2. View the short bio in the About me section
-3. Click on the contact to contact the individual/candidate
-4. Click on the Portfolio to view the projects developed
-5. Click on Resume to view the Tech skills and download resume
+1. Go to Application link "https://rekhaleelara.github.io/MVC_TechBlog/"
+2. Click on Login and Sign up if you're a new user
+3. Once logged in, go to the dashboard
+4. Add Posts
+5. Click on the header of the post and edit/delete posts
+6. You can even enter comments for the posts
+7. Logout of the application once done.
 
 ## Support
 
