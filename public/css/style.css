@@ -26,3 +26,23 @@ header {
   color: var(--secondary);
   border-bottom-style: solid;
 }
+
+posts{
+  box-sizing: border-box;
+  width: 100%;
+  border: solid black 10px;
+  padding: 5px;
+}
+
+#postTitle{
+  background-color: black;
+  color: whitesmoke;
+}
+
+#postedby, #posteddate{
+  color: whitesmoke;
+}
+
+#postedcontent{
+  color: black;
+}

@@ -1,0 +1,30 @@
+<div class="home-container">
+    {{!-- <div class="posts-container"> --}}
+                {{#if loggedIn}}
+                <span class="dashlogout">
+          <button data-link="/dashboard" class="btn-no-style dashboard">My Dashboard</button>
+          <button data-link="/logout" id="logout" class="btn-no-style" >Logout</button>
+          </span>
+        {{else}}
+                  <li><a data-link="/login">Login</a></li>
+        {{/if}}
+        {{#each posts}}
+        </br>
+                <div class="postgap">
+        <div class="titleposteddetails" id={"titleposteddetails"}>
+            <p id={{id}} class="postTitle">{{title}}</p>
+            <div>
+                <span id="postedby">{{postedBy}}</span>
+                <span id="posteddate">{{date}}</span>
+            </div>
+        </div>
+        <p id="postedcontent">{{content}}</p>
+        <button type="submit" id={{id}} class="btn-DeletePostblock">Delete</button>
+        </div>
+        {{/each}}
+    {{!-- </div> --}}
+
+</div>
+
+<script src="/javascript/home.js"></script>
+<script src="/javascript/logout.js"></script>

@@ -1,0 +1,48 @@
+<div class="newcomment-container">
+
+    </br>
+    </br>
+  <div class="posts-container">
+
+    <div class='titleposteddetails2' id={{post.id}}>
+      <p id={{post.id}} class="postTitle">{{post.title}}</p>
+      <div>
+        <span id="postedby">{{post.postedBy}}</span>
+        <span id="posteddate">{{post.date}}</span>
+      </div>
+    </div>
+    <p id="postedcontent">{{post.content}}</p>
+  </div>
+  </br>
+  </br>
+  <div class="newcomment">
+    <label for="content">Comment <span class="text-danger">*</span></label>
+    <input type="newcontent" class="form-control" name="newcontent" id="newcomment-input"
+      placeholder="Enter your comments here" style="width:50%;">
+  </div>
+  </br>
+  <div class="form-group">
+    <input type="submit" value="Add Comment" id={{post.id}} class="btn btn-info btn-block" style="width: 11%;">
+    {{!-- <input type="submit" value="Add Comment" id={{id}} class="btn btn-info btn-block" style="width: 11%;"> --}}
+    </br>
+  </div>
+
+  {{#each post.Comments}}
+  <div class="posts-container">
+    <div class="comment" id={"comment"}>
+      <p id="postedcontent">{{body}}</p>
+    </div>
+    <div class="postedbyuser">
+      {{!-- <input type="submit" value="Delete Comment" id={{post.id}} class="btn btn-info btn-DeleteCommentblock"
+        style="width: 11%;"> --}}
+
+      --<span id="commentedby">{{commentedBy}}</span>
+      <span id="commenteddate">{{createdAt}}</span>
+      <button type="submit" id={{id}} class="btn-DeleteCommentblock" style="width: 7%; ">Delete</button>
+    </div>
+  </div>
+  </br>
+  {{/each}}
+</div>
+</div>
+<script src="/javascript/single-post.js"></script>

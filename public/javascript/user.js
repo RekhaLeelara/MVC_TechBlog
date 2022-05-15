@@ -5,7 +5,7 @@ function createUser(){
     console.log("Hello!!");
     const usernameElement = document.getElementById('username-input');
     const passwordElement = document.getElementById('password-input');
-    fetch("User", {
+    fetch("user", {
         method: 'post',
         body: JSON.stringify({
             username: usernameElement.value,

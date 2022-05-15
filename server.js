@@ -9,7 +9,7 @@ const routes = require('./controllers/user-routes');
 // Sets up the Express App
 const app = express();
 // const routes = require(path.join(__dirname, 'controllers'));
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3009;
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -41,24 +41,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers/login-routes.js'));
 app.use(require('./controllers/home.js'));
-app.use(require('./controllers/landingpage.js'));
+// app.use(require('./controllers/landingpage.js'));
 app.use(require('./controllers/dashboard.js'));
+app.use(require('./controllers/post.js'));
+app.use(require('./controllers/comment-routes.js'));
+
 app.use(express.static('views/assets/img'));
 
-
-app.use(function(req, res, next) {
-  if (req.session.user == null){
-// if user is not logged-in redirect back to login page //
-      res.redirect('/login');
-  }   else{
-      next();
-  }
-});
-
 app.use(routes);
-// Starts the server to begin listening
-// const server = require("http").Server(app);
 
+// Starts the server to begin listening
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });

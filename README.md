@@ -1,30 +1,37 @@
-# 📖 Conditionally Render Food Allergens
 
-Work with a partner to implement the following user story:
+## Description
 
-* As a party guest, I want to know whether a food item contains nuts.
+This application helps to display the details of a Portfolio and helps with the job search. The potential employer can also check the projects done by the candidate and download the resume.
 
-## Acceptance Criteria
+## Screenshot
+![testing](./public/assets/images/myportfolio.png)
 
-* It's done when the View displays the message "Contains Nuts" under the food items that contain nuts.
 
-## 📝 Notes
+## GitHub Repo
 
-Refer to the documentation:
+Repo: https://github.com/RekhaLeelara/MyPortforlio
 
-[Handlebars.js documentation on built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html#if)
 
-## 💡 Hints
+## Usage
 
-Which built-in helper conditionally renders a block?
+1. Go to Application link
+2. View the short bio in the About me section
+3. Click on the contact to contact the individual/candidate
+4. Click on the Portfolio to view the projects developed
+5. Click on Resume to view the Tech skills and download resume
 
-## 🏆 Bonus
+## Support
 
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+N/A
 
-* Which built-in helper method is the inverse of `#if`? What is a use case for rendering a block if an expression is a falsy value?
+## Roadmap
 
-Use [Google](https://www.google.com) or another search engine to research this.
+Add graphics to make this presentable and add more contents/skills.
 
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+## License
+
+N/A
+
+## Project Status
+
+Baseline project completed. Additional enhancements can be done based on the user feedback.

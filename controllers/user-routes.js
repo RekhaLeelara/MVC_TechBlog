@@ -23,7 +23,25 @@ router.post('/user', (req, res) => {
       res.json(dbUserData);
     });
     // send user to login page now
-    res.render('home')
+    res.render('dashboard')
+  });
+
+  router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+      console.log("Destroying user session");
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+
+    } else {
+      res.status(404).end();
+    }
+  });
+
+  router.get('/logout', (req, res) => {
+    if (!req.session.loggedIn) {
+      res.redirect('/login');
+    }
   });
 
 

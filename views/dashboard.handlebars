@@ -1,10 +1,36 @@
 <div class="dashboard-container">
-    <div class="jumbotron">
-        <h3 class="text-center text-primary" id="dashboard" style="width: 50%;">This is my dashboard page</h3>
-        <button>+ Add New</button>
 
-    </div>   
+    <div class="jumbotron">
+        <button id="addnew">+Add New</button>
+    </div>
+    <div class="posts">
+        {{#each posts}}
+        <div class="posts-container">
+            <div class='titleposteddetails2' id={{id}}>
+                <p id={{id}} class="postTitle">{{title}}</p>
+                <div>
+                    <span id="postedby">{{postedBy}}</span>
+                    <span id="posteddate">{{date}}</span>
+                </div>
+            </div>
+            <p id="postedcontent">{{content}}</p>
+        </div>
+
+        <br>
+        <br>
+        {{/each}}
+        </br>
+    </div>
 
 </div>
+<script>
+    $('#addnew').click(function (e) {
+        console.log(e)
+        var url = '/newpost/'
+        console.log(url)
+        document.location.replace(url);
+    });
+</script>
 
-    <script src="/javascript/dashboard.js"></script>
+
+<script src="/javascript/editpost.js"></script>

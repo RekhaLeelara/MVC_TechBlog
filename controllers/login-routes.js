@@ -1,6 +1,23 @@
 const router = require('express').Router();
 const User = require('../models/User');
+const Post = require('../models/Post');
 
+
+router.get('/', (req, res) => {
+    // if (req.session.loggedIn){
+        Post.findAll({
+
+          }).then(dbUserData => {
+            // console.log("dashboardgetdbuserdata", dbUserData)
+            const posts = dbUserData.map(post=>post.get({plain:true}));
+            res.render('home', {posts, loggedIn: req.session.loggedIn});
+          });
+    // }
+    // else{
+    //     res.redirect('/login')
+    // }
+
+});
 
 router.get('/login', (req, res) => {
   res.render('login')
